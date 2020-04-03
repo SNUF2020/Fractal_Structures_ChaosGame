@@ -33,6 +33,7 @@
             this.button_Exit = new System.Windows.Forms.Button();
             this.radioButton_Sirpinski_3rand = new System.Windows.Forms.RadioButton();
             this.groupBox_Fractal = new System.Windows.Forms.GroupBox();
+            this.radioButton_noRes_23 = new System.Windows.Forms.RadioButton();
             this.radioButton_CenterPoint_23 = new System.Windows.Forms.RadioButton();
             this.radioButton_CenterPoint_13 = new System.Windows.Forms.RadioButton();
             this.radioButton_SquareRest1 = new System.Windows.Forms.RadioButton();
@@ -42,6 +43,8 @@
             this.radioButton_secLast = new System.Windows.Forms.RadioButton();
             this.groupBox_Color = new System.Windows.Forms.GroupBox();
             this.radioButton_3rdLast = new System.Windows.Forms.RadioButton();
+            this.radioButton_SquareRest2 = new System.Windows.Forms.RadioButton();
+            this.radioButton_SquareRest3 = new System.Windows.Forms.RadioButton();
             this.groupBox_Fractal.SuspendLayout();
             this.groupBox_Color.SuspendLayout();
             this.SuspendLayout();
@@ -82,7 +85,7 @@
             // 
             this.radioButton_Sirpinski_3rand.AutoSize = true;
             this.radioButton_Sirpinski_3rand.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton_Sirpinski_3rand.Location = new System.Drawing.Point(20, 88);
+            this.radioButton_Sirpinski_3rand.Location = new System.Drawing.Point(20, 132);
             this.radioButton_Sirpinski_3rand.Name = "radioButton_Sirpinski_3rand";
             this.radioButton_Sirpinski_3rand.Size = new System.Drawing.Size(427, 28);
             this.radioButton_Sirpinski_3rand.TabIndex = 3;
@@ -91,6 +94,9 @@
             // 
             // groupBox_Fractal
             // 
+            this.groupBox_Fractal.Controls.Add(this.radioButton_SquareRest3);
+            this.groupBox_Fractal.Controls.Add(this.radioButton_SquareRest2);
+            this.groupBox_Fractal.Controls.Add(this.radioButton_noRes_23);
             this.groupBox_Fractal.Controls.Add(this.radioButton_CenterPoint_23);
             this.groupBox_Fractal.Controls.Add(this.radioButton_CenterPoint_13);
             this.groupBox_Fractal.Controls.Add(this.radioButton_SquareRest1);
@@ -98,16 +104,27 @@
             this.groupBox_Fractal.Controls.Add(this.radioButton_Sirpinski_3rand);
             this.groupBox_Fractal.Location = new System.Drawing.Point(535, 77);
             this.groupBox_Fractal.Name = "groupBox_Fractal";
-            this.groupBox_Fractal.Size = new System.Drawing.Size(537, 326);
+            this.groupBox_Fractal.Size = new System.Drawing.Size(576, 477);
             this.groupBox_Fractal.TabIndex = 4;
             this.groupBox_Fractal.TabStop = false;
             this.groupBox_Fractal.Text = "Options";
+            // 
+            // radioButton_noRes_23
+            // 
+            this.radioButton_noRes_23.AutoSize = true;
+            this.radioButton_noRes_23.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton_noRes_23.Location = new System.Drawing.Point(20, 82);
+            this.radioButton_noRes_23.Name = "radioButton_noRes_23";
+            this.radioButton_noRes_23.Size = new System.Drawing.Size(324, 28);
+            this.radioButton_noRes_23.TabIndex = 8;
+            this.radioButton_noRes_23.Text = "w/o Restriction (Jump-Length = 2/3)";
+            this.radioButton_noRes_23.UseVisualStyleBackColor = true;
             // 
             // radioButton_CenterPoint_23
             // 
             this.radioButton_CenterPoint_23.AutoSize = true;
             this.radioButton_CenterPoint_23.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton_CenterPoint_23.Location = new System.Drawing.Point(20, 269);
+            this.radioButton_CenterPoint_23.Location = new System.Drawing.Point(20, 412);
             this.radioButton_CenterPoint_23.Name = "radioButton_CenterPoint_23";
             this.radioButton_CenterPoint_23.Size = new System.Drawing.Size(490, 28);
             this.radioButton_CenterPoint_23.TabIndex = 7;
@@ -118,7 +135,7 @@
             // 
             this.radioButton_CenterPoint_13.AutoSize = true;
             this.radioButton_CenterPoint_13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton_CenterPoint_13.Location = new System.Drawing.Point(20, 210);
+            this.radioButton_CenterPoint_13.Location = new System.Drawing.Point(20, 353);
             this.radioButton_CenterPoint_13.Name = "radioButton_CenterPoint_13";
             this.radioButton_CenterPoint_13.Size = new System.Drawing.Size(474, 28);
             this.radioButton_CenterPoint_13.TabIndex = 6;
@@ -129,7 +146,7 @@
             // 
             this.radioButton_SquareRest1.AutoSize = true;
             this.radioButton_SquareRest1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton_SquareRest1.Location = new System.Drawing.Point(20, 145);
+            this.radioButton_SquareRest1.Location = new System.Drawing.Point(20, 189);
             this.radioButton_SquareRest1.Name = "radioButton_SquareRest1";
             this.radioButton_SquareRest1.Size = new System.Drawing.Size(505, 28);
             this.radioButton_SquareRest1.TabIndex = 5;
@@ -208,11 +225,33 @@
             this.radioButton_3rdLast.Text = "w/ Color (3rd last jump)";
             this.radioButton_3rdLast.UseVisualStyleBackColor = true;
             // 
+            // radioButton_SquareRest2
+            // 
+            this.radioButton_SquareRest2.AutoSize = true;
+            this.radioButton_SquareRest2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton_SquareRest2.Location = new System.Drawing.Point(20, 246);
+            this.radioButton_SquareRest2.Name = "radioButton_SquareRest2";
+            this.radioButton_SquareRest2.Size = new System.Drawing.Size(550, 28);
+            this.radioButton_SquareRest2.TabIndex = 9;
+            this.radioButton_SquareRest2.Text = "Restriction: opposite corner is not allowed (Jump-Length = 1/2)";
+            this.radioButton_SquareRest2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton_SquareRest3
+            // 
+            this.radioButton_SquareRest3.AutoSize = true;
+            this.radioButton_SquareRest3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton_SquareRest3.Location = new System.Drawing.Point(20, 298);
+            this.radioButton_SquareRest3.Name = "radioButton_SquareRest3";
+            this.radioButton_SquareRest3.Size = new System.Drawing.Size(501, 28);
+            this.radioButton_SquareRest3.TabIndex = 10;
+            this.radioButton_SquareRest3.Text = "Restriction: left corner is not allowed (Jump-Length = 1/2)";
+            this.radioButton_SquareRest3.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1138, 450);
+            this.ClientSize = new System.Drawing.Size(1138, 566);
             this.Controls.Add(this.groupBox_Color);
             this.Controls.Add(this.groupBox_Fractal);
             this.Controls.Add(this.button_Exit);
@@ -246,6 +285,9 @@
         private System.Windows.Forms.RadioButton radioButton_secLast;
         private System.Windows.Forms.GroupBox groupBox_Color;
         private System.Windows.Forms.RadioButton radioButton_3rdLast;
+        private System.Windows.Forms.RadioButton radioButton_noRes_23;
+        private System.Windows.Forms.RadioButton radioButton_SquareRest3;
+        private System.Windows.Forms.RadioButton radioButton_SquareRest2;
     }
 }
 

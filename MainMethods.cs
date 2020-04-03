@@ -55,8 +55,9 @@ namespace Fractal_Structures
             StringFormat drawFormat = new System.Drawing.StringFormat();
             gr.DrawString(info, drawFont, drawBrush, x, y, drawFormat);
         }
-        public Point[] PlayGround(Graphics gr, int Size, RadioButton radioButton_Sirpinski_3rand, RadioButton radioButton_SquarNoice,
-            RadioButton radioButton_SquareRest1, RadioButton radioButton_CenterPoint_13, RadioButton radioButton_CenterPoint_23)
+        public Point[] PlayGround(Graphics gr, int Size, RadioButton radioButton_Sirpinski_3rand, RadioButton radioButton_SquarNoice, 
+            RadioButton radioButton_noRes_23, RadioButton radioButton_SquareRest1, RadioButton radioButton_SquareRest2, 
+            RadioButton radioButton_SquareRest3, RadioButton radioButton_CenterPoint_13, RadioButton radioButton_CenterPoint_23)
         {
             Point topLeft = new Point(20, 40);
             Point topRight = new Point(20+Size, 40);
@@ -83,10 +84,28 @@ namespace Fractal_Structures
                 playGround = new Point[] { topLeft, topRight, downLeft, downRight };
                 return playGround;
             }
+            else if (radioButton_noRes_23.Checked)
+            {
+                Message(14, "Cantor Dust", gr, 20, 10);
+                playGround = new Point[] { topLeft, topRight, downLeft, downRight };
+                return playGround;
+            }
             else if (radioButton_SquareRest1.Checked)
             {
                 Message(14, "Structure w/o Name", gr, 20, 10);
-                playGround = new Point[] { topLeft, topRight, downLeft, downRight };
+                playGround = new Point[] { topLeft, topRight, downRight, downLeft  };
+                return playGround;
+            }
+            else if (radioButton_SquareRest2.Checked)
+            {
+                Message(14, "Structure w/o Name", gr, 20, 10);
+                playGround = new Point[] { topLeft, topRight, downRight, downLeft };
+                return playGround;
+            }
+            else if (radioButton_SquareRest3.Checked)
+            {
+                Message(14, "T-Square", gr, 20, 10);
+                playGround = new Point[] { topLeft, topRight, downRight, downLeft };
                 return playGround;
             }
             else if (radioButton_CenterPoint_13.Checked)
@@ -102,9 +121,9 @@ namespace Fractal_Structures
                 return playGround;
             }
         }
-        public double[] Para (RadioButton radioButton_Sirpinski_3rand, RadioButton radioButton_SquarNoice,
-            RadioButton radioButton_SquareRest1, RadioButton radioButton_CenterPoint_13, RadioButton radioButton_CenterPoint_23, 
-            RadioButton radioButton_secLast, RadioButton radioButton_3rdLast)
+        public double[] Para (RadioButton radioButton_Sirpinski_3rand, RadioButton radioButton_SquarNoice, RadioButton radioButton_noRes_23,
+            RadioButton radioButton_SquareRest1, RadioButton radioButton_SquareRest2, RadioButton radioButton_SquareRest3, 
+            RadioButton radioButton_CenterPoint_13, RadioButton radioButton_CenterPoint_23, RadioButton radioButton_secLast, RadioButton radioButton_3rdLast)
         {
             double[] Para = new double [3];
             if (radioButton_Sirpinski_3rand.Checked)
@@ -119,10 +138,28 @@ namespace Fractal_Structures
                 Para[1] = 0; // Restriction
                 //return Para;
             }
+            else if (radioButton_noRes_23.Checked)
+            {
+                Para[0] = 1.5; // JumpLength
+                Para[1] = 0; // Restriction
+                             //return Para;
+            }
             else if (radioButton_SquareRest1.Checked)
             {
                 Para[0] = 2; // JumpLength
                 Para[1] = 1; // Restriction
+                //return Para;
+            }
+            else if (radioButton_SquareRest2.Checked)
+            {
+                Para[0] = 2; // JumpLength
+                Para[1] = 2; // Restriction
+                //return Para;
+            }
+            else if (radioButton_SquareRest3.Checked)
+            {
+                Para[0] = 2; // JumpLength
+                Para[1] = 3; // Restriction
                 //return Para;
             }
             else if (radioButton_CenterPoint_13.Checked)
@@ -195,18 +232,31 @@ namespace Fractal_Structures
             int direction = 1;
             int last_dir = 1;
             int help = 0; // help variable for color definition (at second switch)
+            int restriction;
+            bool stop;
+
             // throw away first points (to get better convergation)
             for (int k = 0; k < 1000000; k++)
-            { 
-                direction = rnd.Next(1, PlayGround.Length + 1);
+            {
                 // any restriction?
                 if (para[1] > 0)
                 {
-                    if (direction == last_dir)
-                        direction = direction + 1;
-                    if (direction > PlayGround.Length)
+                    restriction = last_dir + (int)(para[1]-1);
+                    if (restriction > PlayGround.Length)
+                        restriction = restriction - 4;
+                    stop = false;
+                    do
+                    {
+                        direction = rnd.Next(1, PlayGround.Length + 1);
+                        if (direction != restriction)
+                            stop = true;
+                    }
+                    while (stop != true);
+                        if (direction > PlayGround.Length)
                         direction = 1;
                 }
+                else
+                    direction = rnd.Next(1, PlayGround.Length + 1);
                 last_dir = direction;
                 // random junp
                 switch (direction)
@@ -253,15 +303,25 @@ namespace Fractal_Structures
             // plot now fractal structure
             for (int k = 0; k < 200000; k++)
             {
-                direction = rnd.Next(1, PlayGround.Length + 1);
                 // any restriction?
                 if (para[1] > 0)
                 {
-                    if (direction == last_dir)
-                        direction = direction + 1;
+                    restriction = last_dir + (int)(para[1] - 1);
+                    if (restriction > PlayGround.Length)
+                        restriction = restriction - 4;
+                    stop = false;
+                    do
+                    {
+                        direction = rnd.Next(1, PlayGround.Length + 1);
+                        if (direction != restriction)
+                            stop = true;
+                    }
+                    while (stop != true);
                     if (direction > PlayGround.Length)
                         direction = 1;
                 }
+                else
+                    direction = rnd.Next(1, PlayGround.Length + 1);
                 last_dir = direction;
                 // random junp
                 switch (direction)

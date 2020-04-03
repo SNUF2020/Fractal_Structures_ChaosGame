@@ -19,7 +19,7 @@ namespace Fractal_Structures
         // QR-code from Code-Bude, see e.g. GitHub
 
         // S.N.U.F 27.03.2020
-        // Last change: 30.03.2020
+        // Last change: 03.04.2020
 
         // Version 1.0:
         // Async mode for growth-methode due to long-term calculation of motion freezing windows (here not the case but standard)
@@ -62,12 +62,13 @@ namespace Fractal_Structures
             Graphics g = Graphics.FromImage(Field.Image);
             
             // Generation of playground
-            Point[] playground = Ausgabe.PlayGround(g, size, radioButton_Sirpinski_3rand, radioButton_SquarNoice, 
-                radioButton_SquareRest1,  radioButton_CenterPoint_13,  radioButton_CenterPoint_23);
+            Point[] playground = Ausgabe.PlayGround(g, size, radioButton_Sirpinski_3rand, radioButton_SquarNoice, radioButton_noRes_23,
+                radioButton_SquareRest1, radioButton_SquareRest2, radioButton_SquareRest3, radioButton_CenterPoint_13,  radioButton_CenterPoint_23);
 
             // Definition of restriction etc.
-            double [] para = Ausgabe.Para(radioButton_Sirpinski_3rand, radioButton_SquarNoice, radioButton_SquareRest1,
-                radioButton_CenterPoint_13, radioButton_CenterPoint_23, radioButton_secLast, radioButton_3rdLast);
+            double [] para = Ausgabe.Para(radioButton_Sirpinski_3rand, radioButton_SquarNoice, radioButton_noRes_23, radioButton_SquareRest1,
+                radioButton_SquareRest2, radioButton_SquareRest3, radioButton_CenterPoint_13, radioButton_CenterPoint_23, radioButton_secLast, 
+                radioButton_3rdLast);
 
             // Definition of color
             SolidBrush[] Farbe = Ausgabe.Farbe(radioButton_non);
